@@ -1046,7 +1046,7 @@ cdef class MySQLResult:
         public bytes message
         public int affected_rows, warning_count, field_count, server_status, unbuffered_active, has_next
         public list fields, converters
-        public unsigned long insert_id
+        public unsigned long long insert_id
         public tuple rows, description
 
     def __init__(self, connection: Connection):
