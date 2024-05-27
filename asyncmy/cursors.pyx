@@ -37,7 +37,7 @@ cdef class Cursor:
         public int max_stmt_length, rownumber, rowcount, arraysize, _echo
         public tuple description
         public connection, _loop, _executed, _result, _rows
-        public unsigned long lastrowid
+        public unsigned long long lastrowid
 
     def __init__(self, connection: "Connection", echo: bool = False):
         self.max_stmt_length = 1024000
