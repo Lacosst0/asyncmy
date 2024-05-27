@@ -104,8 +104,8 @@ cdef class MysqlPacket:
         self._position += 4
         return result
 
-    cpdef unsigned long read_uint64(self):
-        cdef unsigned long result = Q.unpack_from(self._data, self._position)[0]
+    cpdef unsigned long long read_uint64(self):
+        cdef unsigned long long result = Q.unpack_from(self._data, self._position)[0]
         self._position += 8
         return result
 
@@ -267,7 +267,7 @@ cdef class OKPacketWrapper:
         MysqlPacket packet
         public int affected_rows, server_status, warning_count, has_next
         public bytes message
-        public unsigned long insert_id
+        public unsigned long long insert_id
 
     def __init__(self, MysqlPacket from_packet):
         if not from_packet.is_ok_packet():
